@@ -1,7 +1,5 @@
 package steps;
 
-
-
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -23,23 +21,9 @@ public class GoogleSteps {
         googleSearchPage = new GoogleSearchPage();
     }
 
-    @Given("user navigates to {string}")
-    public void userNavigatesTo(String url) {
-        driver.get(url);
-    }
 
     @When("user search for {string}")
-    public void userSearchFor(String key) {
-        googleSearchPage.searchInputBox.sendKeys(key + Keys.ENTER);
-    }
-
-    @Then("user should see {string} in the url")
-    public void userShouldSeeInTheUrl(String key) {
-        Assert.assertTrue(driver.getCurrentUrl().contains(key));
-    }
-
-    @And("user should see {string} in the title")
-    public void userShouldSeeInTheTitle(String key) {
-        Assert.assertTrue(driver.getTitle().contains(key));
+    public void userSearchFor(String input) {
+        googleSearchPage.searchInputBox.sendKeys(input + Keys.ENTER);
     }
 }
