@@ -1,5 +1,6 @@
 Feature: Google search functionality
 
+  @Google
   Scenario Outline: Validate the title and url after search
     Given user navigates to "https://www.google.com"
     When user search for "<input>"
